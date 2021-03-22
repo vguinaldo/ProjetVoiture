@@ -1,4 +1,4 @@
-package marketing;
+package voiture;
 
 import oracle.kv.*;
 import oracle.kv.table.Row;
@@ -15,7 +15,7 @@ import java.util.StringTokenizer;
 public class DataImportMarketing {
     private final KVStore store;
     private final String tabMarketing = "MARKETING";
-    private final String pathToCSVFile = "/home/oracle/data_group_1/Marketing.csv";
+    private final String pathToCSVFile = "/home/CAO/projetMBDS/Marketing.csv";
     private int clientID = 1;
 
     /**
@@ -196,7 +196,8 @@ public class DataImportMarketing {
             br = new BufferedReader(ipsr);
             /* open text file to read data */
             //parcourir le fichier ligne par ligne et découper chaque ligne en 
-            //morceau séparés par le symbole ;  
+            //morceau séparés par le symbole ;
+
             while ((ligne = br.readLine()) != null) {
                 //int situationFamiliale, 2eme voiture, nbPortes, prix; 
                 //String marketing, age, sexe,  nbEnfantsAcharge,  couleur, occasion, ;

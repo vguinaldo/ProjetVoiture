@@ -1,4 +1,4 @@
-package immatriculation;
+package voiture;
 
 import oracle.kv.*;
 import oracle.kv.table.Row;
@@ -15,7 +15,7 @@ import java.util.StringTokenizer;
 public class DataImportImmatriculation {
     private final KVStore store;
     private final String tabImmatriculation = "IMMATRICULATION";
-    private final String pathToCSVFile = "/home/oracle/data_group_1/Immatriculation.csv";
+    private final String pathToCSVFile = "/home/CAO/projetMBDS/Immatriculations.csv";
 
     /**
      * Runs the DDL command line program.
@@ -213,13 +213,13 @@ public class DataImportImmatriculation {
                 String immatriculationID = immatriculationRecord.get(0);
                 String marque = immatriculationRecord.get(1);
                 String nom = immatriculationRecord.get(2);
-                String puissance = immatriculationRecord.get(3);
+                int puissance = Integer.parseInt(immatriculationRecord.get(3));
                 String longueur = immatriculationRecord.get(4);
-                String nbPlaces = immatriculationRecord.get(5);
-                String nbPortes = immatriculationRecord.get(6);
+                int nbPlaces = Integer.parseInt(immatriculationRecord.get(5));
+                int nbPortes = Integer.parseInt(immatriculationRecord.get(6));
                 String couleur = immatriculationRecord.get(7);
                 String occasion = immatriculationRecord.get(8);
-                String prix = immatriculationRecord.get(9);
+                int prix = Integer.parseInt(immatriculationRecord.get(9));
                 // Add the immatriculation in the KVStore
                 this.insertAimmatriculationRow(immatriculationID, marque, nom, puissance, longueur, nbPlaces, nbPortes, couleur, occasion, prix);
             }

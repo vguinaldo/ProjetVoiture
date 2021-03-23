@@ -41,6 +41,30 @@ summary(immatriculations)
 summary(client)
 
 
+##----import des divers fichiers csv---------
+
+
+immatriculation <- read.csv("Immatriculations.csv", header = TRUE, sep = ",", dec = ".")
+catalogue <- read.csv("Catalogue.csv", header = TRUE, sep = ",", dec = ".")
+marketing <- read.csv("Marketing.csv", header = TRUE, sep = ",", dec = ".")
+clients <- read.csv("Clients_6.csv", header = TRUE, sep = ",", dec = ".")
+
+DÃBUT ANALYSE EXPLORATOIRE DES DONNÃES
+#Import fichier clients
+
+clients <- read.csv("Clients_6.csv", header = TRUE, sep = ",", dec = ".")
+clients$age <- as.integer(clients$age)
+clients$taux <- as.integer(clients$taux)
+clients$situationFamiliale <- as.factor(clients$situationFamiliale)
+clients$nbEnfantsAcharge <- as.integer(clients$nbEnfantsAcharge)
+clients$X2eme.voiture <- as.logical(clients$X2eme.voiture)
+clients$sexe <- as.factor(clients$sexe)
+clients <- na.omit(clients)
+
+
+attach(clients)
+
+
 #Nettoyage age
 
 
@@ -62,17 +86,13 @@ clients$sexe <- as.factor(clients$sexe)
 clients$sexe <- droplevels(clients$sexe)
 
 
-
 #Nettoyage taux
-
-
 
 clients <- subset(clients, clients$taux >= 544)
 
 
 
 #Nettoyage situation familiale
-
 
 clients <- subset(clients, clients$situationFamiliale != "?" & clients$situationFamiliale != " " & clients$situationFamiliale != "N/D")
 
@@ -86,6 +106,13 @@ clients$situationFamiliale <- droplevels(clients$situationFamiliale)
 
 
 clients <- subset(clients, clients$nbEnfantsAcharge >= 0)
+
+
+
+
+
+
+detach(clients)
 
 
 

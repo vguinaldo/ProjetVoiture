@@ -7,13 +7,10 @@ beeline> !connect jdbc:hive2://localhost:10000
 -- identifiants: oracle/welcome1
 
 -- Supprimer la table MARKETING si elle existe déjà
-jdbc:hive2://localhost:10000>
 drop table MARKETING;
 
 -- Création de la table externe MARKETING pointant vers la table MARKETING de ORACLE NOSQL (kv)
-jdbc
-:hive2://localhost:10000> CREATE
-EXTERNAL TABLE MARKETING(
+CREATE EXTERNAL TABLE MARKETING(
     CLIENTMARKETINGID int,
     AGE string ,
     SEXE string,
@@ -30,7 +27,6 @@ TBLPROPERTIES (
 "oracle.kv.tableName" = "MARKETING");
 
 -- Vérification du contenu de la table MARKETING externe dans HIVE
-0: jdbc:hive2://localhost:10000>
 select *
 from MARKETING;
 
@@ -65,4 +61,3 @@ TBLPROPERTIES (
 0: jdbc:hive2://localhost:10000>
 select *
 from IMMATRICULATION;
-

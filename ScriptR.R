@@ -41,7 +41,64 @@ summary(immatriculations)
 summary(client)
 
 
-!!!!!!!!!!!!AJOUTER LES PHASES DE NETTOYAGE!!!!!!!!!!!!!!
+#Nettoyage age
+
+
+clients <- subset(clients, clients$age >= 17)
+
+
+
+#Nettoyage sexe
+
+
+
+clients <- subset(clients, clients$sexe!="?" & clients$sexe!=" " & clients$sexe!="N/D")
+
+clients$sexe <- str_replace(clients$sexe, "Homme", "M")
+clients$sexe <- str_replace(clients$sexe, "Masculin", "M")
+clients$sexe <- str_replace(clients$sexe, "Féminin", "F")
+clients$sexe <- str_replace(clients$sexe, "Femme", "F")
+clients$sexe <- as.factor(clients$sexe)
+clients$sexe <- droplevels(clients$sexe)
+
+
+
+#Nettoyage taux
+
+
+
+clients <- subset(clients, clients$taux >= 544)
+
+
+
+#Nettoyage situation familiale
+
+
+clients <- subset(clients, clients$situationFamiliale != "?" & clients$situationFamiliale != " " & clients$situationFamiliale != "N/D")
+
+
+
+clients$situationFamiliale <- droplevels(clients$situationFamiliale)
+
+
+
+#Nettoyage enfants a charge
+
+
+clients <- subset(clients, clients$nbEnfantsAcharge >= 0)
+
+
+
+###-------------Suppression des doublons dans le fichier immatriculations
+
+doublons <- which(duplicated(immatriculation$immatriculation))
+immatriculation<-immatriculation[-doublons,]
+
+
+
+
+
+
 
 
 #CrÃ©ation de catÃ©gories de vÃ©hicules

@@ -1,24 +1,5 @@
 sqlplus CAOBZ2021@ORCL/CAOBZ202101;
 
-drop table CATALOGUE;
-
--- marque,nom,puissance,longueur,nbPlaces,nbPortes,couleur,occasion,prix
-CREATE EXTERNAL TABLE CATALOGUE (
-    MARQUE string,
-    NOM string ,
-    PUISSANCE string,
-    LONGUEUR string,
-    NBPLACES string,
-    NBPORTES string,
-    COULEUR string,
-    OCCASION string,
-    PRIX string
-) ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-STORED AS TEXTFILE LOCATION 'hdfs:/user/cao/projetMBDS/Catalogue';
-
--- 7.2.2.4 v�rifications
--- v�rifier la pr�sence des lignes et de la table
-select * from CATALOGUE;
 
 drop table CATALOGUE;
 

@@ -1,4 +1,12 @@
---Table : catalogue
-    sqlldr  ORACLEUSER@PDBORCL/PassOrs1 control=control_catalogue.ctl log=track_catalogue.log skip=1
+sqlplus CAOBZ2021@ORCL/CAOBZ202101
+
+DROP TABLE CLIENT;
+
+CREATE TABLE CLIENT(AGE varchar2(30), SEXE varchar2(30), TAUX varchar2(30), SITUATIONFAMILIALE varchar2(30), NBENFANTSACHARGE varchar2(30), XVOITURE varchar2(30));
+
+CTRL+C
+
 --Table : client
-	sqlldr  ORACLEUSER@PDBORCL/PassOrs1 control=control_clients.ctl log=track_clients.log skip=1
+sqlldr CAOBZ2021@ORCL/CAOBZ202101 control=$MYPROJECTHOME/projetMBDS/SQLLOADER/control_clients.ctl log=$MYPROJECTHOME/projetMBDS/SQLLOADER/track_clients.log skip=1
+
+

@@ -65,3 +65,4 @@ TBLPROPERTIES (
 0: jdbc:hive2://localhost:10000>
 select *
 from IMMATRICULATION;
+

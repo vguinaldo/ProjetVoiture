@@ -99,10 +99,13 @@ kv-> get table -name MARKETING
 {"CLIENTMARKETINGID":1,"AGE":"21","SEXE":"F","TAUX":"1396","SITUATIONFAMILIALE":"C�libataire","NBENFANTSACHARGE":"0","DEUXIEMEVOITURE":"false"}
 20 rows returned
 
--- Compiler le code java pour importer la table MARKETING à partir du fichier csv
+-- Ceci est le chemin vers notre projet sur la machine virtuelle
+[oracle@bigdatalite ~]$ export MYPROJECTHOME=/home/CAO/projetMBDS/
+
+-- Compiler le code java pour importer la table Immatriculation à partir du fichier csv
 [oracle@bigdatalite ~]$ javac -g -cp $KVHOME/lib/kvclient.jar:$MYPROJECTHOME/ $MYPROJECTHOME/voiture/DataImportImmatriculation.java
 
--- Executer le code java pour importer la table MARKETING à partir du fichier csv
+-- Executer le code java pour importer la table Immatriculation à partir du fichier csv
 [oracle@bigdatalite ~]$ java -Xmx256m -Xms256m  -cp $KVHOME/lib/kvclient.jar:$MYPROJECTHOME/ voiture.DataImportImmatriculation
 
 -- Connection à Oracle NoSQL
@@ -110,7 +113,7 @@ kv-> get table -name MARKETING
 
 kv-> connect store -name kvstore
 
--- Vérification du contenu de la table MARKETING
+-- Vérification du contenu de la table IMMATRICULATION
 kv-> get table -name IMMATRICULATION
 -- Réponse
 {"IMMATRICULATION":"0 AJ 71","MARQUE":"Jaguar","NOM":"X-Type 2.5 V6","PUISSANCE":"197","LONGUEUR":"longue","NBPLACES":"5","NBPORTES":"5","COULEUR":"blanc","OCCASION":"true","PRIX":"25970"}

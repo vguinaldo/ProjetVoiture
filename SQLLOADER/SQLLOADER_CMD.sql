@@ -15,7 +15,8 @@ CREATE TABLE CLIENT(
 exit
 
 --Table : client
-sqlldr CAOBZ2021@ORCL/CAOBZ202101 control=$MYPROJECTHOME/projetMBDS/SQLLOADER/control_clients.ctl log=$MYPROJECTHOME/projetMBDS/SQLLOADER/track_clients.log skip=1
+sqlldr CAOBZ2021@ORCL/CAOBZ202101 control=$MYPROJECTHOME/projetMBDS/SQLLOADER/control_clients.ctl 
+  log=$MYPROJECTHOME/projetMBDS/SQLLOADER/track_clients.log skip=1
 
 sqlplus CAOBZ2021@ORCL/CAOBZ202101
 
